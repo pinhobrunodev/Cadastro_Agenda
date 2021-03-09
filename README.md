@@ -5,6 +5,7 @@
 ### REALIZADO POR :
 
 @ricardoliveiraof2m - FRONTEND
+
 @pinhobrunodev - BACKEND
 
 
