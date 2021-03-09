@@ -9,6 +9,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import exceptions.DbExceptions;
+import exceptions.DbIntegrityException;
 
 public class DAO {
 
@@ -74,7 +75,21 @@ public class DAO {
 		}
 
 	}
-
+	public void removerContato(JavaBeans jb) {
+		
+		try {
+			Connection con = conectar();
+			PreparedStatement ps = con.prepareStatement("delete from contatos where EMAIL = ?");
+			ps.setString(1, jb.getEmail());
+			ps.executeUpdate();
+			closeStatement(ps);
+			closeConnection(con);
+		} catch (SQLException e) {
+			throw new DbIntegrityException(e.getMessage());
+		}
+		
+	}
+	
 	public static void closeConnection(Connection con) {
 		if (con != null) {
 			try {

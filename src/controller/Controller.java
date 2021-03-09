@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import model.DAO;
 import model.JavaBeans;
 
-@WebServlet(urlPatterns = { "/Controller", "/insert", "/main" })
+@WebServlet(urlPatterns = { "/Controller", "/insert", "/main" ,"/delete"})
 public class Controller extends HttpServlet {
 
 	JavaBeans jb = new JavaBeans();
@@ -45,7 +45,11 @@ public class Controller extends HttpServlet {
 			listarRegistros(request, response);
 		} else if (urlPattern.equals("/insert")) {
 			registrarContato(request, response);
-		} else {
+		}
+		else if(urlPattern.equals("/delete")) {
+			removerContato(request, response);
+		}
+		else {
 			response.sendRedirect("index.html");
 		}
 
@@ -69,6 +73,17 @@ public class Controller extends HttpServlet {
 		request.setAttribute("registros", list);
 		RequestDispatcher rd = request.getRequestDispatcher("registros.jsp");
 		rd.forward(request, response);
+	}
+	
+	
+	protected void removerContato(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+		String email = request.getParameter("email");
+		jb.setEmail(email);
+		dao.removerContato(jb);
+		response.sendRedirect("main");
+
 	}
 
 }

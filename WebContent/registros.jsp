@@ -55,19 +55,22 @@ ArrayList<JavaBeans> listar = (ArrayList<JavaBeans>) request.getAttribute("regis
                             <td><%=listar.get(i).getNome()%></td>
                             <td><%=listar.get(i).getEmail()%></td>
                             <td><%=listar.get(i).getFone()%></td>
-                            <td><button id="edit">Editar</button>
-						   <button id="excluir">Excluir</button></td>
+                            <td><button id="edit">Editar</button></td>
+                            
+                            <td><a href="delete?email=<%=listar.get(i).getEmail()%>" id="excluir">Excluir</a></td>
+						
 
                   
                             </tr>
                             <%} %> 
 
 			
+			
+			
 			</tbody>
 
 
 		</table>
-
 
 
 	</div>
