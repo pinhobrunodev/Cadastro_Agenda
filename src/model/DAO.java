@@ -60,7 +60,7 @@ public class DAO {
 			PreparedStatement ps = con.prepareStatement("select * from contatos order by NOME");
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
-				int ID = rs.getInt(1);
+				String ID = rs.getString(1);
 				String NOME = rs.getString(2);
 				String EMAIL = rs.getString(3);
 				String FONE = rs.getString(4);
@@ -79,8 +79,8 @@ public class DAO {
 		
 		try {
 			Connection con = conectar();
-			PreparedStatement ps = con.prepareStatement("delete from contatos where EMAIL = ?");
-			ps.setString(1, jb.getEmail());
+			PreparedStatement ps = con.prepareStatement("delete from contatos where ID = ?");
+			ps.setString(1, jb.getID());
 			ps.executeUpdate();
 			closeStatement(ps);
 			closeConnection(con);
@@ -89,6 +89,49 @@ public class DAO {
 		}
 		
 	}
+	
+	public void selecionarContato(JavaBeans jb) {
+		
+		try {
+			Connection con = conectar();
+			PreparedStatement ps = con.prepareStatement("select * from contatos where ID = ? ");
+			ps.setString(1, jb.getID());
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				jb.setID(rs.getString(1));
+				jb.setNome(rs.getString(2));
+				jb.setEmail(rs.getString(3));
+				jb.setFone(rs.getString(4));	
+			}
+			closeResultSet(rs);
+			closeStatement(ps);
+			closeConnection(con);
+		} catch (SQLException e) {
+			throw new DbExceptions(e.getMessage());
+		}
+		
+	}
+	
+	/*public void atualizarContato(JavaBeans jb) {
+		try {
+			Connection con = conectar();
+			PreparedStatement ps = con.prepareStatement("UPDATE contatos SET NOME = ? , EMAIL = ? , FONE = ? WHERE ID = ?");
+			ps.setString(1, jb.getNome());
+			ps.setString(2, jb.getEmail());
+			ps.setString(3, jb.getFone());
+			ps.setString(4, jb.getID());
+			closeStatement(ps);
+			closeConnection(con);
+		} catch (SQLException e) {
+			throw new DbExceptions(e.getMessage());
+		}
+	}
+	
+	*/
+	
+	
+	
+	
 	
 	public static void closeConnection(Connection con) {
 		if (con != null) {

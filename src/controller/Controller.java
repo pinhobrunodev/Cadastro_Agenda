@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import model.DAO;
 import model.JavaBeans;
 
-@WebServlet(urlPatterns = { "/Controller", "/insert", "/main" ,"/delete"})
+@WebServlet(urlPatterns = { "/Controller", "/insert", "/main" ,"/delete","/select"})
 public class Controller extends HttpServlet {
 
 	JavaBeans jb = new JavaBeans();
@@ -49,6 +49,10 @@ public class Controller extends HttpServlet {
 		else if(urlPattern.equals("/delete")) {
 			removerContato(request, response);
 		}
+		else if(urlPattern.equals("/select")) {
+			selecionarContato(request, response);
+		
+		}
 		else {
 			response.sendRedirect("index.html");
 		}
@@ -79,11 +83,29 @@ public class Controller extends HttpServlet {
 	protected void removerContato(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		String email = request.getParameter("email");
-		jb.setEmail(email);
+	
+		jb.setID(request.getParameter("id"));
 		dao.removerContato(jb);
 		response.sendRedirect("main");
 
 	}
+	
+	
+	protected void selecionarContato(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+		jb.setID(request.getParameter("id"));
+		dao.selecionarContato(jb);
+		System.out.println(jb.getID());
+		System.out.println(jb.getNome());
+		System.out.println(jb.getEmail());
+		System.out.println(jb.getFone());
+		response.sendRedirect("main");
+		
+	}
+	
+	
+
+	
 
 }

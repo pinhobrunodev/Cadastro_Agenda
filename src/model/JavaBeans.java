@@ -5,13 +5,13 @@ public class JavaBeans {
 	private String nome;
 	private String email;
 	private String fone;
-	private int ID;
+	private String ID;
 
 	public JavaBeans() {
 
 	}
 
-	public JavaBeans(String nome, String email, String fone, int ID) {
+	public JavaBeans(String nome, String email, String fone, String ID) {
 		super();
 		this.nome = nome;
 		this.email = email;
@@ -19,11 +19,11 @@ public class JavaBeans {
 		this.ID = ID;
 	}
 
-	public int getID() {
+	public String getID() {
 		return ID;
 	}
 
-	public void setID(int iD) {
+	public void setID(String iD) {
 		ID = iD;
 	}
 
