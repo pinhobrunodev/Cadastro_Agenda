@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; utf-8"
 	pageEncoding="utf-8"%>
 <%@page import="java.util.ArrayList"%>
@@ -54,11 +55,10 @@ ArrayList<JavaBeans> listar = (ArrayList<JavaBeans>) request.getAttribute("regis
                             <td><%=listar.get(i).getNome()%></td>
                             <td><%=listar.get(i).getEmail()%></td>
                             <td><%=listar.get(i).getFone()%></td>
-                            <td><button id="edit">Editar</button></td>
+                            <td><button id="excluir"><a href="delete?email=<%=listar.get(i).getEmail()%>" >Excluir</a></button>
+                           <button id="edit"><a href="select?email=<%=listar.get(i).getEmail()%>" >Editar</a></button></td>
                             
-                            <td><button id="excluir"><a href="delete?email=<%=listar.get(i).getEmail()%>" >Excluir</a></button></td>
-						
-
+                       
                   
                             </tr>
                             <%} %> 
