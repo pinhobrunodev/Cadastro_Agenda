@@ -29,9 +29,10 @@
 
 .LISTAR CONTATO  ✅
 
+.REMOVER ✅
+
 ### A FAZER : 
 
-.REMOVER ⏳ 
 
 .ATUALIZAR ⏳
 
