@@ -17,13 +17,14 @@
 
 
 
+### FEITO : 
 
-
-### A FAZER : 
 
 .ADICIONAR CONTATO ✅
 
 .LISTAR CONTATO  ✅
+
+### A FAZER : 
 
 .REMOVER ⏳ 
 
