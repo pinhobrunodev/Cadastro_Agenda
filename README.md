@@ -7,6 +7,7 @@
 
 
 <a href="https://github.com/ricardoliveiraof2m">@ricardoliveiraof2m</a> - FRONTEND  🎨:man_artist:
+
 <a href="https://github.com/pinhobrunodev">@pinhobrunodev</a> - BACKEND ☕️🧱
 
 
