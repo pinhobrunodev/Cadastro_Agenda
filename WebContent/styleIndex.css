@@ -25,6 +25,10 @@ button {
 	border: #3c164d solid 2px;
 	width: 200px;
 	cursor: pointer;
+	
+}
+button{
+	outline: none
 }
 
 button:hover {

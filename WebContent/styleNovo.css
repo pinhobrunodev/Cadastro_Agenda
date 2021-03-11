@@ -25,6 +25,10 @@ input {
 	padding: 10px;
 	border-color: #8331a7;
 }
+input {
+    outline: none;
+ 
+}
 
 #botao {
 	margin-top: 30px;
@@ -33,6 +37,9 @@ input {
 	color: #fff;
 	cursor: pointer;
 }
+#botao{
+	  outline: none;
+}
 
 body {
 	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
@@ -40,15 +47,3 @@ body {
 	background-color: #8331a7;
 }
 
-.botao1 {
-	margin-top: 250x;
-	color: white;
-	text-decoration: none;
-	background-color: #000000;
-	padding: 5px 10px 5px 10px;
-	font-size: 1.2em;
-	font-weight: 700;
-	border-radius: 5px;
-	border: 10px;
-	cursor: pointer;
-}
