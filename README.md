@@ -19,7 +19,8 @@
     JDBC
 
 
-![20210309_113314](https://user-images.githubusercontent.com/60756219/110486597-8bf90000-80cb-11eb-8d73-bc5db678c333.gif)
+![20210313_120241](https://user-images.githubusercontent.com/60756219/111034423-5bc79f00-83f4-11eb-80e8-00c25ebbc026.gif)
+
 
 
 
@@ -38,8 +39,6 @@
 
 .REMOVER ✅
 
-### A FAZER : 
+.ATUALIZAR ✅
 
-
-.ATUALIZAR ⏳
 
