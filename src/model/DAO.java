@@ -112,7 +112,8 @@ public class DAO {
 		
 	}
 	
-	/*public void atualizarContato(JavaBeans jb) {
+	
+	public void atualizarContato(JavaBeans jb) {
 		try {
 			Connection con = conectar();
 			PreparedStatement ps = con.prepareStatement("UPDATE contatos SET NOME = ? , EMAIL = ? , FONE = ? WHERE ID = ?");
@@ -120,6 +121,7 @@ public class DAO {
 			ps.setString(2, jb.getEmail());
 			ps.setString(3, jb.getFone());
 			ps.setString(4, jb.getID());
+			ps.executeUpdate();
 			closeStatement(ps);
 			closeConnection(con);
 		} catch (SQLException e) {
@@ -127,7 +129,7 @@ public class DAO {
 		}
 	}
 	
-	*/
+	
 	
 	
 	

@@ -12,10 +12,14 @@
 }
 
 img {
+	
 	margin-top: 30px;
 	width: 170px;
 }
 
+#imgWidth{
+	margin-left: 30px;
+}
 h1 {
 	color: #8331a7;
 }

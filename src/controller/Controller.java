@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import model.DAO;
 import model.JavaBeans;
 
-@WebServlet(urlPatterns = { "/Controller", "/insert", "/main" ,"/delete","/select"})
+@WebServlet(urlPatterns = { "/Controller", "/insert", "/main" ,"/delete","/select","/update"})
 public class Controller extends HttpServlet {
 
 	JavaBeans jb = new JavaBeans();
@@ -51,6 +51,11 @@ public class Controller extends HttpServlet {
 		}
 		else if(urlPattern.equals("/select")) {
 			selecionarContato(request, response);
+		
+		}
+		
+		else if(urlPattern.equals("/update")) {
+			atualizarContato(request, response);
 		
 		}
 		else {
@@ -96,11 +101,29 @@ public class Controller extends HttpServlet {
 		
 		jb.setID(request.getParameter("id"));
 		dao.selecionarContato(jb);
-		System.out.println(jb.getID());
-		System.out.println(jb.getNome());
-		System.out.println(jb.getEmail());
-		System.out.println(jb.getFone());
+		//Setar os atributos do formulario com conteudo JavaBeans
+		request.setAttribute("id", jb.getID());
+		request.setAttribute("nome", jb.getNome());
+		request.setAttribute("email", jb.getEmail());
+		request.setAttribute("fone", jb.getFone());
+		//Encaminhar os dados para editar.jsp
+		RequestDispatcher rd = request.getRequestDispatcher("editar.jsp");
+		rd.forward(request, response);
+		
+		
+	}
+	
+	
+	
+	protected void atualizarContato(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		jb.setID(request.getParameter("id"));
+		jb.setNome(request.getParameter("nome"));
+		jb.setEmail(request.getParameter("email"));
+		jb.setFone(request.getParameter("fone"));
+		dao.atualizarContato(jb);
 		response.sendRedirect("main");
+		
 		
 	}
 	

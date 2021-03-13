@@ -18,6 +18,9 @@ public class JavaBeans {
 		this.fone = fone;
 		this.ID = ID;
 	}
+	
+
+
 
 	public String getID() {
 		return ID;
